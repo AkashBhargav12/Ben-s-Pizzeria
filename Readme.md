@@ -96,7 +96,7 @@ We need data from the Pizzeria to give us the following information:
 
   
 - Where is the data coming from? 
-The data is sourced from the website (datasource](https://learnbi.online/pizzaproject))
+The data is sourced from the website [datasource](https://learnbi.online/pizzaproject))
 
 
 # Project Stages

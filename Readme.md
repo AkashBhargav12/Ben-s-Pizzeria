@@ -94,9 +94,10 @@ We need data from the Pizzeria to give us the following information:
 - Total Views
 - Total Videos Uploaded
 
-  
-- Where is the data coming from? 
-The data is sourced from the website [datasource](https://learnbi.online/pizzaproject))
+
+Where is the data coming from? 
+
+The data is sourced from the website [datasource](https://learnbi.online/pizzaproject)
 
 
 # Project Stages
@@ -178,6 +179,21 @@ Some of the tables that may be appropriate in answering our questions include:
 
 
 ## Database design
+
+Based on the customer requirements and the data we have from the Excel files, we need design the tables for orders, inventory and staff as below,
+
+### Orders
+
+|	**Field**	|	**Type**	|	**Other**	|
+|	---	|	---	|	---	|
+|	Row_ID	|	int	|	PK	|
+|	Order_ID	|	varchar(50)	|		|
+|	Created_At	|	datetime	|	FK	|
+|	Quantity	|	int	|		|
+|	Delivery	|	boolean	|		|
+|	Cust_ID	|	int	|	FK	|
+|	Add_ID	|	int	|	FK	|
+|	Item_ID	|	int	|	FK	|
 
 
 

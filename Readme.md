@@ -1,7 +1,7 @@
 # Ben's Pizzeria
 
 
-![Top-Youtubers-animated-gif](Assets/Images/sprout-social-social-youtube-monetization.svg)
+![Ben's Pizzeria](Assests/Images/Ben's Pizzeria.png)
 
 
 
@@ -65,69 +65,86 @@ Develop a comprehensive SQL database and interactive dashboards to manage and an
 
 ## Scope
 
-Design a relational database to capture and store key business data
+To create a robust data management and analysis system for Ben's Pizzeria by:
 
-- Database Design
-- SQL Queries
-- Dashboard Integration
+- Designing a normalized SQL database.
+- Writing efficient SQL queries for data retrieval and analysis.
+- Building interactive dashboards to visualize key business metrics.
 
+## Key Areas of Focus
 
-## User Story
-
-As the Head of Marketing, I want to identify the top YouTubers in the UK based on subscriber count, videos uploaded and views accumulated, so that I can decide on which channels would be best to run marketing campaigns with to generate a good ROI.
-
+- Orders Management
+- Stock Control
+- Staff Management
 
 # Data source 
 
 - What data is needed to achieve our objective?
 
-We need data on the top UK YouTubers in 2024 that includes their 
-- Channel Names
+We need data from the Pizzeria to give us the following information:
+
+- Items in the Menu
+- Ingredients
+- Order details
+- Staff details
+- Staff rota
+- Cost of the ingredients
+- Price of the items on the menu
 - Total Subscribers
 - Total Views
 - Total Videos Uploaded
 
   
 - Where is the data coming from? 
-The data is sourced from Kaggle (an Excel extract), [see here to find it.](https://www.kaggle.com/datasets/bhavyadhingra00020/top-100-social-media-influencers-2024-countrywise?resource=download)
+The data is sourced from the website (datasource](https://learnbi.online/pizzaproject))
 
 
-# Stages
+# Project Stages
 
 - Design
 - Developement
 - Testing
 - Analysis
+- Recommendations
 
 
 # Design
 
-## Dashboard components required 
-- What should the dashboard contain based on the requirements provided?
+## Dashboard and database components required 
 
-To understand what it should contain, we need to figure out what questions we need the dashboard to answer:
-
-1. Who are the top 10 YouTubers with the most subscribers?
-2. Which 3 channels have uploaded the most videos?
-3. Which 3 channels have the most views?
-4. Which 3 channels have the highest average views per video?
-5. Which 3 channels have the highest views per subscriber ratio?
-6. Which 3 channels have the highest subscriber engagement rate per video uploaded?
+- Customer Orders
+    - Fields: Order ID, Item Name, Item Price, Quantity, Customer Name, Delivery Address, Product Category, Row ID (Primary Key)
+- Normalized Tables
+    - Customer Table: Customer ID, First Name, Last Name
+    - Address Table: Address ID, Address Line 1, Address Line 2, City, State, Zip Code
+    - Item Table: Item ID, SKU, Item Name, Item Category, Item Size, Item Price
+- Stock Control
+    - Ingredients Table: Ingredient ID, Ingredient Name, Ingredient Price
+    - Recipe Table: Recipe ID, Ingredient ID, Quantity
+    - Inventory Table: Inventory ID, Item ID, Quantity in Stock
+  - Staff Management
+    - Staff Table: Staff ID, First Name, Last Name, Position, Hourly Rate
+    - Shift Table: Shift ID, Day of the Week, Start Time, Finish Time
+    - Rota Table: Row ID, Shift ID, Date, Staff ID
   
-  
-## Dashboard mockup
+## Database mockup
 
-- What should it look like? 
+- How should the database look like? 
 
-Some of the data visuals that may be appropriate in answering our questions include:
+Some of the tables that may be appropriate in answering our questions include:
 
-1. Table
-2. Treemap
-3. Scorecards
-4. Horizontal bar chart 
+1. Orders
+2. Customers
+3. Address
+4. Items
+5. Rota
+6. Shift
+7. Staff
+8. Ingredient
+9. Recipe
+10. Inventory
 
-
-![Dashboard-Mockup](Assets/Images/Mockup.png)
+![Database-Mockup](Assests/Images/Final database design.png)
 
 
 ## Tools Used
@@ -135,11 +152,11 @@ Some of the data visuals that may be appropriate in answering our questions incl
 
 | Tool | Purpose |
 | --- | --- |
-| Excel | Exploring the data |
-| SQL Server | Cleaning, testing, and analyzing the data |
+| Excel | Intial data exploration |
+| SQL Server | Database Creation, cleaning, and analysing |
 | Power BI | Visualizing the data via interactive dashboards |
 | GitHub | Hosting the project documentation |
-| Mokkup AI | Designing the mockup of the dashboard | 
+| QuickDBD | Designing the mockup of the database | 
 
 
 # Development
@@ -150,9 +167,9 @@ Some of the data visuals that may be appropriate in answering our questions incl
 
   1. Get the data from a reliable data source
   2. Explore the data in Excel to check for any errors that standout
-  3. Load the data into SQL Server
+  3. Design the databse in SQL
   4. Clean the data with SQL
-  5. Test the data with SQL
+  5. Analyse the data with SQL
   6. Load the clean data into PowerBI
   7. Generate visualisations of the data in PowerBI
   8. Generate the findings based on the insights
@@ -160,17 +177,9 @@ Some of the data visuals that may be appropriate in answering our questions incl
   10. Publish the insights generated
 
 
-## Data exploration notes
-
-This is the stage where we scan the data for errors, inconcsistencies, bugs, weird and corrupted characters etc. 
+## Database design
 
 
-- What are the initial observations with this dataset? What's caught our attention so far? 
-
-1. There are at least 4 columns that contain the data we need for this analysis, which signals we have everything we need from the file without needing to contact the client for any more data. 
-2. The first column contains the channel ID with what appears to be channel IDS, which are separated by a @ symbol - we need to extract the channel names from this.
-3. Some of the cells and header names are in a different language - we need to confirm if these columns are needed, and if so, we need to address them.
-4. We have more data than we need, so some of these columns would need to be removed
 
 
 ## Data cleaning 

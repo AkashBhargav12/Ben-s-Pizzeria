@@ -104,7 +104,6 @@ The data is sourced from the website [datasource](https://learnbi.online/pizzapr
 
 - Design
 - Developement
-- Testing
 - Analysis
 - Recommendations
 
@@ -195,14 +194,16 @@ Based on the customer requirements and the data we have from the Excel files, we
 |	Add_ID	|	int	|	FK	|
 |	Item_ID	|	int	|	FK	|
 
-### Customers						
+### Customers
+
 |	**Field**	|	**Type**	|	**Other**	|
 |	---	|	---	|	---	|
 |	Cust_ID	|	int	|	PK, FK	|
 |	Customer_FirstName	|	varchar(50)	|		|
 |	Customer_LastName	|	varchar(50)	|		|
 
-### Address						
+### Address
+
 |	**Field**	|	**Type**	|	**Other**	|
 |	---	|	---	|	---	|
 |	Add_ID	|	int	|	PK, FK	|
@@ -211,7 +212,8 @@ Based on the customer requirements and the data we have from the Excel files, we
 |	Delivery_City	|	varchar(50)	|		|
 |	Delivery_Zipcode	|	varchar(50)	|		|
 
-### Items						
+### Items
+
 |	**Field**	|	**Type**	|	**Other**	|
 |	---	|	---	|	---	|
 |	Item_ID	|	int	|	PK, FK	|
@@ -221,7 +223,8 @@ Based on the customer requirements and the data we have from the Excel files, we
 |	Item_Size	|	varchar(50)	|		|
 |	Item_Price	|	decimal(5,2)	|		|
 
-### Ingredients						
+### Ingredients
+
 |	**Field**	|	**Type**	|	**Other**	|
 |	---	|	---	|	---	|
 |	Ing_Id	|	varchar(50)	|	PK, FK	|
@@ -230,7 +233,8 @@ Based on the customer requirements and the data we have from the Excel files, we
 |	Ing_Meas	|	varchar(50)	|		|
 |	Ing_Price	|	decimal(5,2)	|		|
 
-### Recipe						
+### Recipe
+
 |	**Field**	|	**Type**	|	**Other**	|
 |	---	|	---	|	---	|
 |	Row_ID	|	int	|	PK	|
@@ -238,14 +242,16 @@ Based on the customer requirements and the data we have from the Excel files, we
 |	Ing_ID	|	varchar(50)	|	FK	|
 |	Quantity	|	int	|		|
 
-### Inventory						
+### Inventory
+
 |	**Field**	|	**Type**	|	**Other**	|
 |	---	|	---	|	---	|
 |	Inv_ID	|	int	|	PK	|
 |	Item_ID	|	varchar(50)	|	FK	|
 |	Quantity	|	int	|		|
-					
-### Rota						
+			
+### Rota
+
 |	**Field**	|	**Type**	|	**Other**	|
 |	---	|	---	|	---	|
 |	Row_ID	|	int	|	PK	|
@@ -253,16 +259,18 @@ Based on the customer requirements and the data we have from the Excel files, we
 |	Date	|	datetime	|	FK	|
 |	Shift_ID	|	varchar(50)	|	FK	|
 |	Staff_ID	|	varchar(50)	|	FK	|
-					
-### Shift						
+
+### Shift
+
 |	**Field**	|	**Type**	|	**Other**	|
 |	---	|	---	|	---	|
 |	Shift_ID	|	varchar(50)	|	PK, FK	|
 |	Day_of_week	|	varchar(50)	|		|
 |	Start_Time	|	time	|		|
 |	End_Time	|	time	|		|
-			
-### Staff						
+
+### Staff
+
 |	**Field**	|	**Type**	|	**Other**	|
 |	---	|	---	|	---	|
 |	Staff_ID	|	varchar(50)	|	PK, FK	|
@@ -274,6 +282,7 @@ Based on the customer requirements and the data we have from the Excel files, we
 
 
 ## Data cleaning 
+
 - What do we expect the clean data to look like? What should it contain? What contraints should we apply to it?
 
 The aim is to refine the dataset to ensure it is structured and ready for analysis. 
@@ -282,84 +291,149 @@ The cleaned data should meet the following criteria and constraints:
 
 - Only relevant columns should be retained.
 - All data types should be appropriate for the contents of each column.
-- No column should contain null values, indicating complete data for all records.
 
-Below is a table outlining the constraints on our cleaned dataset:
-
-| Property | Description |
-| --- | --- |
-| Number of Rows | 100 |
-| Number of Columns | 4 |
-
-And here is a tabular representation of the expected schema for the clean data:
-
-| Column Name | Data Type | Nullable |
-| --- | --- | --- |
-| channel_name | VARCHAR | NO |
-| total_subscribers | INTEGER | NO |
-| total_views | INTEGER | NO |
-| total_videos | INTEGER | NO |
-
-
-
-- What steps are needed to clean and shape the data into the desired format?
-
-1. Remove unnecessary columns by only selecting the ones you need
-2. Extract Youtube channel names from the first column
-3. Rename columns using aliases
-
-
-
-### Transform the data
-
-
-
-```sql
-/* 
-Data Cleaning Steps
-1. Remove Unnecessary columns by only selecting the ones we need.
-2. Extract the Youtube channel names from the first column.
-3. Rename the column names.
-*/
-
-SELECT 
-    NOMBRE, total_subscribers, total_videos, total_views
-FROM
-    top_uk_youtubers_2024;
-
-SELECT 
-    SUBSTRING(Nombre,
-            1,
-            LOCATE('@', Nombre) - 1)
-            AS Channel_Name, total_subscribers, total_views, total_videos
-FROM
-    top_uk_youtubers_2024
-```
+These are checked using standard SELECT promts and checking that the data is in correct format.
 
 
 ### Create the SQL view
 
+Four new views are created to combine only the necessary columns from all the different tables to analyse the order activity, inventory management and staff cost. The views are created as below,
+
+#### Order Activity
+
 ```sql
 /*
-# 1. Create a view to store the transformed data
-# 2. Cast the extracted channel name as VARCHAR(100)
-# 3. Select the required columns from the top_uk_youtubers_2024 SQL table 
+•	Total Orders
+•	Total Sales
+•	Total Items Sold
+•	Average Order Value
+•	Sales by Category
+•	Top Selling Items
+•	Orders by Hour
+•	Sales by Hour
+•	Orders by Address (Map Integration)
+•	Orders by Delivery Method
 */
 
--- 1.
-CREATE VIEW view_uk_youtubers_2024 AS
-
--- 2.
-SELECT
-   CAST(SUBSTRING(Nombre,
-            1,
-            LOCATE('@', Nombre) - 1)
-        AS CHAR (100)) AS Channel_Name, total_subscribers, total_views, total_videos
-
--- 3.
-FROM
-    top_uk_youtubers_2024
+Create view Order_activity as
+SELECT 
+    orders.order_id,
+    items.Item_Price,
+    orders.Quantity,
+    items.Item_Category,
+    items.Item_Name,
+    orders.Created_At,
+    address.Delivery_Address1,
+    address.Delivery_Address2,
+    address.Delivery_City,
+    address.Delivery_Zipcode,
+    orders.Delivery
+From Orders
+Left join items on Orders.Item_ID = items.Item_ID
+Left join address on Orders.Add_ID = address.Add_ID
 ```
+
+#### Inventory Management
+
+```sql
+/*
+1.	Total quantity by ingredient
+2.	Total cost of ingredients
+3.	Calculated cost of pizza
+*/
+
+Create View Stock1 AS
+Select
+S1.Ing_name,
+S1.Ing_Id,
+S1.Ing_Weight,
+S1.Ing_Price,
+S1.item_name,
+S1.order_quantity,
+S1.recipe_quantity,
+S1.order_quantity * S1.recipe_quantity as Ordered_weight,
+S1.Ing_Price/s1.Ing_Weight as unit_cost,
+(S1.order_quantity * S1.recipe_quantity) * (S1.Ing_Price/s1.Ing_Weight) as ingredient_cost
+from 
+(Select 
+Orders.Item_Id,
+Items.SKU,
+Items.Item_Name,
+recipe.Ing_ID,
+recipe.Quantity as recipe_quantity,
+ingredient.ing_name,
+ingredient.Ing_Price,
+ingredient.Ing_Weight,
+Sum(Orders.Quantity) as Order_Quantity
+From Orders
+Left Join Items on Orders.Item_ID = Items.Item_ID
+Left Join recipe on items.sku = recipe.Recipe_ID
+Left Join ingredient on ingredient.Ing_Id = recipe.Ing_ID
+Group By 
+Orders.Item_ID, 
+Items.SKU, 
+Items.Item_Name, 
+recipe.Ing_ID, 
+recipe.Quantity, 
+ingredient.Ing_name, 
+ingredient.Ing_Price, 
+ingredient.Ing_Weight) as S1
+;
+```
+
+```sql
+/*
+1.	Percentage stock remaining by ingredient
+2.	List of ingredients to re order based on remaining inventory
+*/
+
+Create View Stock2 as
+Select
+s2.ing_name,
+s2.ordered_weight,
+ingredient.Ing_Weight*inventory.Quantity as total_inv_weight,
+(ingredient.Ing_Weight*inventory.Quantity) - s2.ordered_weight as remaining_weight
+from
+(Select
+ing_id,
+ing_name,
+sum(ordered_weight) as ordered_weight
+from 
+stock1
+group by
+ing_name,
+ing_id) as S2
+
+left join inventory on inventory.Item_ID = s2.ing_id
+left join ingredient on ingredient.ing_ID = s2.ing_id;
+```
+
+#### Staff Cost
+
+```sql
+/*
+1.	Total staff cost
+2.	Total hours worked
+3.	Hours worked by staff member
+4.	Cost per staff member
+*/
+
+Create view Staff_cost as
+Select
+rota.Date,
+staff.Fist_Name,
+staff.Last_Name,
+staff.Hourly_Rate,
+shift.Start_Time,
+shift.End_Time,
+((hour(timediff(shift.end_time,shift.start_time))*60) + (minute(timediff(shift.end_time,shift.start_time))))/60 as hours_in_shift,
+(((hour(timediff(shift.end_time,shift.start_time))*60) + (minute(timediff(shift.end_time,shift.start_time))))/60) * staff.Hourly_Rate as staff_cost
+From
+rota
+left join staff on rota.Staff_ID = staff.Staff_ID
+left join shift on rota.Shift_ID = shift.Shift_ID;
+```
+
 
 # Testing
 

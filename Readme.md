@@ -311,7 +311,6 @@ Four new views are created to combine only the necessary columns from all the di
 •	Top Selling Items
 •	Orders by Hour
 •	Sales by Hour
-•	Orders by Address (Map Integration)
 •	Orders by Delivery Method
 */
 
@@ -434,74 +433,7 @@ left join staff on rota.Staff_ID = staff.Staff_ID
 left join shift on rota.Shift_ID = shift.Shift_ID;
 ```
 
-
-# Testing
-
-Here are the data quaity tests conducted
-
-## Row Count check
-```sql
-/*
-Data Quality Tests
-
-1. The data needs to be 100 records of youtube channels (row count check). --- (passed)
-*/
-
-SELECT
-    COUNT(*) AS no_of_rows
-FROM
-    view_uk_youtubers_2024;
-
-```
-
-## Column Count check
-```sql
-/*
-Data Quality Tests
-
-2. The data needs 4 fields (column count test). --- (passed)
-*/
-
-SELECT 
-    COUNT(*) AS coulmns_count
-FROM
-    Information_Schema.Columns
-WHERE
-    table_name = 'view_uk_youtubers_2024';
-```
-
-## Data Type check
-```sql
-/*
-Data Quality Tests
-
-3. Channel name column must be string format and the other columns must be numerical data types (data type check). --(passed)
-*/
-
-SELECT 
-    Column_name, Data_type
-FROM
-    Information_Schema.Columns
-WHERE
-    table_name = 'view_uk_youtubers_2024';
-```
-
-## Duplicate Count check
-```sql
-/*
-Data Quality Tests
-
-4. Each record must be unique in the dataset (duplicate count check). -- (passed)
-*/
-
-SELECT 
-    channel_name, COUNT(*) AS duplicate
-FROM
-    view_uk_youtubers_2024
-GROUP BY channel_name
-HAVING COUNT(*) > 1
-```
-
+Now that we have created the views to calculate all the requirements of the project brief, we can connect the database to a visualisation software such as PowerBI to create interactive dashboards.
 
 # Visualisation
 
@@ -509,11 +441,17 @@ HAVING COUNT(*) > 1
 
 - What does the dashboard look like?
 
-![Power BI Visualisation](Assets/Images/Top_UK_Youtubers_2024.png)
-
 [PowerBI Dashboard](https://app.powerbi.com/view?r=eyJrIjoiNDA0NGJjZTItYzY4My00ZTMzLWJmM2UtNmYwYWE5MTNhZmQxIiwidCI6ImI1MWY0MTY0LTE1M2ItNDhlYi05MWMyLTZiYzVmYTgxNmI0NiJ9&pageName=ReportSection)
 
-This is an interactive dashboard showing the Top Uk Youtubers in 2024 so far
+This is an interactive dashboard panes for Order Activity, Inventory Management and Staff Cost.
+
+Here is how each of these Dashboards look like:
+
+### Order Activity
+
+### Inventory Management
+
+### Staff Cost
 
 
 ## DAX Measures

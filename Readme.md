@@ -468,57 +468,24 @@ RETURN totalSubscribers
 
 ### 2. Total Views (B)
 ```sql
-Total Views (B) = 
-VAR billion = 1000000000
-VAR sumOfTotalViews = SUM(view_uk_youtubers_2024[total_views])
-VAR totalViews = ROUND(sumOfTotalViews / billion, 2)
-
-RETURN totalViews
-
 ```
 
 ### 3. Total Videos
 ```sql
-Total Videos = 
-VAR totalVideos = SUM(view_uk_youtubers_2024[total_videos])
-
-RETURN totalVideos
-
 ```
 
 ### 4. Average Views Per Video (M)
 ```sql
-Average Views per Video (M) = 
-VAR sumOfTotalViews = SUM(view_uk_youtubers_2024[total_views])
-VAR sumOfTotalVideos = SUM(view_uk_youtubers_2024[total_videos])
-VAR  avgViewsPerVideo = DIVIDE(sumOfTotalViews,sumOfTotalVideos, BLANK())
-VAR finalAvgViewsPerVideo = DIVIDE(avgViewsPerVideo, 1000000, BLANK())
-
-RETURN finalAvgViewsPerVideo 
-
 ```
 
 
 ### 5. Subscriber Engagement Rate
 ```sql
-Subscriber Engagement Rate = 
-VAR sumOfTotalSubscribers = SUM(view_uk_youtubers_2024[total_subscribers])
-VAR sumOfTotalVideos = SUM(view_uk_youtubers_2024[total_videos])
-VAR subscriberEngRate = DIVIDE(sumOfTotalSubscribers, sumOfTotalVideos, BLANK())
-
-RETURN subscriberEngRate 
-
 ```
 
 
 ### 6. Views per subscriber
 ```sql
-Views Per Subscriber = 
-VAR sumOfTotalViews = SUM(view_uk_youtubers_2024[total_views])
-VAR sumOfTotalSubscribers = SUM(view_uk_youtubers_2024[total_subscribers])
-VAR viewsPerSubscriber = DIVIDE(sumOfTotalViews, sumOfTotalSubscribers, BLANK())
-
-RETURN viewsPerSubscriber 
 
 ```
 
@@ -527,40 +494,12 @@ RETURN viewsPerSubscriber
 
 ## Findings
 
-For this analysis, we're going to focus on the questions below to get the information we need for our marketing client - 
-
-Here are the key questions we need to answer for our marketing client: 
-1. Who are the top 10 YouTubers with the most subscribers?
-2. Which 3 channels have uploaded the most videos?
-3. Which 3 channels have the most views?
-4. Which 3 channels have the highest average views per video?
-5. Which 3 channels have the highest views per subscriber ratio?
-6. Which 3 channels have the highest subscriber engagement rate per video uploaded?
-
 
 ### 1. Who are the top 10 YouTubers with the most subscribers?
-
-| Rank | Channel Name         | Subscribers (M) |
-|------|----------------------|-----------------|
-| 1    | NoCopyrightSounds    | 33.60           |
-| 2    | DanTDM               | 28.60           |
-| 3    | Dan Rhodes           | 26.50           |
-| 4    | Miss Katy            | 24.50           |
-| 5    | Mister Max           | 24.40           |
-| 6    | KSI                  | 24.10           |
-| 7    | Jelly                | 23.50           |
-| 8    | Dua Lipa             | 23.30           |
-| 9    | Sidemen              | 21.00           |
-| 10   | Ali-A                | 18.90           |
 
 
 ### 2. Which 3 channels have uploaded the most videos?
 
-| Rank | Channel Name    | Videos Uploaded |
-|------|-----------------|-----------------|
-| 1    | GRM Daily       | 14,696          |
-| 2    | Manchester City | 8,248           |
-| 3    | Yogscast        | 6,435           |
 
 
 

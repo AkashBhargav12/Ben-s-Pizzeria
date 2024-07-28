@@ -195,6 +195,81 @@ Based on the customer requirements and the data we have from the Excel files, we
 |	Add_ID	|	int	|	FK	|
 |	Item_ID	|	int	|	FK	|
 
+### Customers						
+|	** Field **	|	** Type **	|	** Other  **	|
+|	---	|	---	|	---	|
+|	Cust_ID	|	int	|	PK, FK	|
+|	Customer_FirstName	|	varchar(50)	|		|
+|	Customer_LastName	|	varchar(50)	|		|
+
+### Address						
+|	** Field **	|	** Type **	|	** Other  **	|
+|	---	|	---	|	---	|
+|	Add_ID	|	int	|	PK, FK	|
+|	Delivery_Address1	|	varchar(200)	|		|
+|	Delivery_Address2	|	varchar(200)	|	NULLABLE	|
+|	Delivery_City	|	varchar(50)	|		|
+|	Delivery_Zipcode	|	varchar(50)	|		|
+
+### Items						
+|	** Field **	|	** Type **	|	** Other  **	|
+|	---	|	---	|	---	|
+|	Item_ID	|	int	|	PK, FK	|
+|	SKU	|	varchar(20)	|	FK	|
+|	Item_Name	|	varchar(50)	|		|
+|	Item_Category	|	varchar(50)	|		|
+|	Item_Size	|	varchar(50)	|		|
+|	Item_Price	|	decimal(5,2)	|		|
+
+### Ingredients						
+|	** Field **	|	** Type **	|	** Other  **	|
+|	---	|	---	|	---	|
+|	Ing_Id	|	varchar(50)	|	PK, FK	|
+|	Ing_name	|	varchar(200)	|		|
+|	Ing_Weight	|	int	|		|
+|	Ing_Meas	|	varchar(50)	|		|
+|	Ing_Price	|	decimal(5,2)	|		|
+
+### Recipe						
+|	** Field **	|	** Type **	|	** Other  **	|
+|	---	|	---	|	---	|
+|	Row_ID	|	int	|	PK	|
+|	Recipe_ID	|	varchar(50)	|	FK	|
+|	Ing_ID	|	varchar(50)	|	FK	|
+|	Quantity	|	int	|		|
+
+### Inventory						
+|	** Field **	|	** Type **	|	** Other  **	|
+|	---	|	---	|	---	|
+|	Inv_ID	|	int	|	PK	|
+|	Item_ID	|	varchar(50)	|	FK	|
+|	Quantity	|	int	|		|
+					
+### Rota						
+|	** Field **	|	** Type **	|	** Other  **	|
+|	---	|	---	|	---	|
+|	Row_ID	|	int	|	PK	|
+|	Rota_ID	|	varchar(50)	|		|
+|	Date	|	datetime	|	FK	|
+|	Shift_ID	|	varchar(50)	|	FK	|
+|	Staff_ID	|	varchar(50)	|	FK	|
+					
+### Shift						
+|	** Field **	|	** Type **	|	** Other  **	|
+|	---	|	---	|	---	|
+|	Shift_ID	|	varchar(50)	|	PK, FK	|
+|	Day_of_week	|	varchar(50)	|		|
+|	Start_Time	|	time	|		|
+|	End_Time	|	time	|		|
+			
+### Staff						
+|	** Field **	|	** Type **	|	** Other  **	|
+|	---	|	---	|	---	|
+|	Staff_ID	|	varchar(50)	|	PK, FK	|
+|	Fist_Name	|	varchar(50)	|		|
+|	Last_Name	|	varchar(50)	|		|
+|	Position	|	varchar(100)	|		|
+|	Hourly_Rate	|	decimal(5,2)	|		|
 
 
 

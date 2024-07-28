@@ -196,14 +196,14 @@ Based on the customer requirements and the data we have from the Excel files, we
 |	Item_ID	|	int	|	FK	|
 
 ### Customers						
-|	** Field **	|	** Type **	|	** Other  **	|
+|	**Field**	|	**Type**	|	**Other**	|
 |	---	|	---	|	---	|
 |	Cust_ID	|	int	|	PK, FK	|
 |	Customer_FirstName	|	varchar(50)	|		|
 |	Customer_LastName	|	varchar(50)	|		|
 
 ### Address						
-|	** Field **	|	** Type **	|	** Other  **	|
+|	**Field**	|	**Type**	|	**Other**	|
 |	---	|	---	|	---	|
 |	Add_ID	|	int	|	PK, FK	|
 |	Delivery_Address1	|	varchar(200)	|		|
@@ -212,7 +212,7 @@ Based on the customer requirements and the data we have from the Excel files, we
 |	Delivery_Zipcode	|	varchar(50)	|		|
 
 ### Items						
-|	** Field **	|	** Type **	|	** Other  **	|
+|	**Field**	|	**Type**	|	**Other**	|
 |	---	|	---	|	---	|
 |	Item_ID	|	int	|	PK, FK	|
 |	SKU	|	varchar(20)	|	FK	|
@@ -222,7 +222,7 @@ Based on the customer requirements and the data we have from the Excel files, we
 |	Item_Price	|	decimal(5,2)	|		|
 
 ### Ingredients						
-|	** Field **	|	** Type **	|	** Other  **	|
+|	**Field**	|	**Type**	|	**Other**	|
 |	---	|	---	|	---	|
 |	Ing_Id	|	varchar(50)	|	PK, FK	|
 |	Ing_name	|	varchar(200)	|		|
@@ -231,7 +231,7 @@ Based on the customer requirements and the data we have from the Excel files, we
 |	Ing_Price	|	decimal(5,2)	|		|
 
 ### Recipe						
-|	** Field **	|	** Type **	|	** Other  **	|
+|	**Field**	|	**Type**	|	**Other**	|
 |	---	|	---	|	---	|
 |	Row_ID	|	int	|	PK	|
 |	Recipe_ID	|	varchar(50)	|	FK	|
@@ -239,14 +239,14 @@ Based on the customer requirements and the data we have from the Excel files, we
 |	Quantity	|	int	|		|
 
 ### Inventory						
-|	** Field **	|	** Type **	|	** Other  **	|
+|	**Field**	|	**Type**	|	**Other**	|
 |	---	|	---	|	---	|
 |	Inv_ID	|	int	|	PK	|
 |	Item_ID	|	varchar(50)	|	FK	|
 |	Quantity	|	int	|		|
 					
 ### Rota						
-|	** Field **	|	** Type **	|	** Other  **	|
+|	**Field**	|	**Type**	|	**Other**	|
 |	---	|	---	|	---	|
 |	Row_ID	|	int	|	PK	|
 |	Rota_ID	|	varchar(50)	|		|
@@ -255,7 +255,7 @@ Based on the customer requirements and the data we have from the Excel files, we
 |	Staff_ID	|	varchar(50)	|	FK	|
 					
 ### Shift						
-|	** Field **	|	** Type **	|	** Other  **	|
+|	**Field**	|	**Type**	|	**Other**	|
 |	---	|	---	|	---	|
 |	Shift_ID	|	varchar(50)	|	PK, FK	|
 |	Day_of_week	|	varchar(50)	|		|
@@ -263,7 +263,7 @@ Based on the customer requirements and the data we have from the Excel files, we
 |	End_Time	|	time	|		|
 			
 ### Staff						
-|	** Field **	|	** Type **	|	** Other  **	|
+|	**Field**	|	**Type**	|	**Other**	|
 |	---	|	---	|	---	|
 |	Staff_ID	|	varchar(50)	|	PK, FK	|
 |	Fist_Name	|	varchar(50)	|		|

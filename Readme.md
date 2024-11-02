@@ -1,4 +1,6 @@
-# Ben's Pizzeria - Data Analytics Portfolio Project
+# Ben's Pizzeria
+
+![Ben's Pizzeria](Assests/Images/Ben's Pizzeria.png)
 
 ## Table of Contents
 - [Objective](#objective)
@@ -12,7 +14,6 @@
 
 [View Interactive Dashboard](https://app.powerbi.com/view?r=eyJrIjoiNDA0NGJjZTItYzY4My00ZTMzLWJmM2UtNmYwYWE5MTNhZmQxIiwidCI6ImI1MWY0MTY0LTE1M2ItNDhlYi05MWMyLTZiYzVmYTgxNmI0NiJ9&pageName=ReportSection)
 
-![Ben's Pizzeria Logo](Assets/Images/Ben's%20Pizzeria.png)
 
 ## Objective
 
@@ -46,7 +47,7 @@ Data is sourced from [learnbi.online/pizzaproject](https://learnbi.online/pizzap
 ## Design
 
 ### Database Design
-![Database Schema](Assets/Images/Final%20database%20design.png)
+![Database-Mockup](Assests/Images/Final database design.png)
 
 ### Dashboard Components Required
 

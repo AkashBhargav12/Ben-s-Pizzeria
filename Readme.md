@@ -12,7 +12,7 @@
 - [Visualization](#visualization)
 - [Analysis](#analysis)
 
-![View Interactive Dashboard](https://app.powerbi.com/reportEmbed?reportId=a9e57744-0397-4a06-a092-740bb40f9228&autoAuth=true&ctid=8d1d3227-da20-4d9e-b0a5-6b5e8303d28c)
+[View Interactive Dashboard](https://app.powerbi.com/reportEmbed?reportId=a9e57744-0397-4a06-a092-740bb40f9228&autoAuth=true&ctid=8d1d3227-da20-4d9e-b0a5-6b5e8303d28c)
 
 
 ## Objective

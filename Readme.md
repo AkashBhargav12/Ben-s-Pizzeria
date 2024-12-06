@@ -10,9 +10,9 @@
 - [Development](#development)
 - [Testing](#testing)
 - [Visualization](#visualization)
-- [Analysis](#Analysis & Discovery)
+- [Analysis](#analysis-&-discovery)
 - [Recommendations](#recommendations)
-- [Implementation Plan](#Implementation Plan)
+- [Implementation Plan](#implementation-plan)
 
 [View Interactive Dashboard](https://app.powerbi.com/view?r=eyJrIjoiMDk2YmY5MTMtMjYyOS00MDVlLTgxZDYtZGRmM2Q5OTczOTY3IiwidCI6IjhkMWQzMjI3LWRhMjAtNGQ5ZS1iMGE1LTZiNWU4MzAzZDI4YyJ9)
 
